@@ -1,9 +1,42 @@
-!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0">
-<title>YARNERS | WearWhat You Yearn
-For</title>
+function toggleCart() {
+ document.getElementById('cart').classList.toggle('open');
+ document.getElementById('overlay').classList.toggle('show');
+}
+
+function checkout() {
+ if(cart.length === 0) {
+  alert('Your shopping bag is empty!');
+  return;
+ }
+
+ let total = cart.reduce((sum,item) => sum + item.price * item.quantity,0);
+
+ let summary = cart.map(item =>
+  item.name + ' x' + item.quantity + ' = ' + money(item.price * item.quantity)
+ ).join('\n');
+
+ alert(
+  'THANK YOU FOR SHOPPING WITH YARNERS!\n\n' +
+  summary + '\n\nTOTAL: ' + money(total) +
+  '\n\nThis is a demo checkout. No actual payment has been made.'
+ );
+}
+
+function copyCode() {
+ const code = 'YARNER10';
+ const message = document.getElementById('copy-message');
+
+ if(navigator.clipboard && window.isSecureContext) {
+  navigator.clipboard.writeText(code).then(() => {
+   message.textContent = 'Discount code copied: ' + code;
+  }).catch(() => {
+   message.textContent = 'Your discount code: ' + code;
+  });
+ } else {
+  message.textContent = 'Your discount code: ' + code;
+ }
+}
+</script>
+
+</body>
+</html>

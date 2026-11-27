@@ -1,42 +1,151 @@
-function toggleCart() {
- document.getElementById('cart').classList.toggle('open');
- document.getElementById('overlay').classList.toggle('show');
+<!DOCTYPE html> <htm
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>YARNERS | Wear What You Yearn
+For</title>
+
+<style>
+
+@import
+url(‘https://fonts.googleapis.com/css2
+?family=DM+Sans:
+wght@400;500;600;700;800&family=
+Playfair+Display:
+wght@500;600;700;800&display=
+
+swap');
+
+‘root {
+
+--wine:#4b1025;
+--burgundy:#701d39;
+--rose:#a65c7/0;
+--cream:#f8f2ed;
+--paper:#fffaf6;
+--ink:#2¢c2024;
+--muted:#8c7b7e;
+--line:#e8d9d8;
+
 }
 
-function checkout() {
- if(cart.length === 0) {
-  alert('Your shopping bag is empty!');
-  return;
- }
+*
 
- let total = cart.reduce((sum,item) => sum + item.price * item.quantity,0);
+{margin:0;padding:0;box-sizing:border-b
+ox}
 
- let summary = cart.map(item =>
-  item.name + ' x' + item.quantity + ' = ' + money(item.price * item.quantity)
- ).join('\n');
+html {scroll-behavior:smooth}
 
- alert(
-  'THANK YOU FOR SHOPPING WITH YARNERS!\n\n' +
-  summary + '\n\nTOTAL: ' + money(total) +
-  '\n\nThis is a demo checkout. No actual payment has been made.'
- );
+body
+{background:var(--cream);color:var(--ink)
+;font-family:'DM Sans',sans-serif}
+
+button
+{font-family:inherit;cursor:pointer}
+
+a {color:inherit;text-decoration:none}
+img
+{width:100%;display:block;object-fit:cov
+er}
+
+topbar {
+
+background:var(--wine);color:#f9e8e8;te
+xt-align:center;
+
+padding:10px;font-size:10px;letter-spaci
+ng:2px
 }
 
-function copyCode() {
- const code = 'YARNER10';
- const message = document.getElementById('copy-message');
+header {
+position:sticky;top:0;z-index:30;
 
- if(navigator.clipboard && window.isSecureContext) {
-  navigator.clipboard.writeText(code).then(() => {
-   message.textContent = 'Discount code copied: ' + code;
-  }).catch(() => {
-   message.textContent = 'Your discount code: ' + code;
-  });
- } else {
-  message.textContent = 'Your discount code: ' + code;
- }
+background:var(--paper);border-bottom:
+1px solid var(--line)
+
 }
-</script>
 
-</body>
-</html>
+nav {
+
+height:78px;padding:0 7%;display:flex;
+
+align-items:center;justify-content:space-
+between
+
+}
+
+logo {
+
+font-family:'Playfair
+Display',serif;font-size:30px;
+
+font-weight:800;letter-spacing:4px;color
+"var(--wine)
+
+}
+
+.logo span {color:var(--rose)}
+
+links
+{display:flex;gap:28px;font-size:11px;fo
+nt-weight:700;letter-spacing: 1px}
+
+links a:hover {color:var(--rose)}
+-nav-right
+{display:flex;gap:12px;align-items:cente
+r}
+
+-bag-button {
+
+border:1px solid
+var(--wine);color:var(--wine);
+background:transparent;padding:1 1px
+17px;
+
+font-size:1 1px;font-weight:800
+
+}
+
+-.bag-button:hover
+{background:var(--wine);color:white}
+-menu-button
+{display:none;border:0;background:none
+‘font-size:25px;color:var(--wine)}
+
+/* HERO */
+-hero {
+
+min-height:610px;display:flex;align-ite
+ms:center;
+
+padding:75px
+9%;color:white;position:relative;
+background:
+
+linear-gradient(90deg,rgba(47,8,23,.88),
+rgba(47,8,23,.32)),
+
+url(‘https://images.unsplash.com/photo
+-1529139574466-a303027c1d8b?w=
+1800') center/cover
+
+}
+-hero-content {max-width:610px}
+
+.overline
+{font-size:10px;font-weight:800;letter-s
+pacing:4px;color:#e5b9c2}
+
+-hero h1 {
+
+font-family:'Playfair Display',serif;
